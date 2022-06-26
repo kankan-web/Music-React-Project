@@ -1,2 +1,6 @@
 hello
-Creating a new branch is quick & simple.
+<<<<<<< HEAD
+我是feature1
+=======
+我是feature1
+>>>>>>> feature1
