@@ -1,0 +1,42 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+export default class TabControl extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      currentIndex:0
+    }
+  }
+  render() {
+    const {titles} = this.props;
+    const {currentIndex} = this.state
+    return (
+      <div className='tab-control'>
+        {
+          titles.map((item,index)=>{
+            return (
+              <div key={index} 
+                   className={'tab-item'+(index===currentIndex? " active":"")} 
+                   onClick={e =>this.itemClick(index)}>
+                <span>{item}</span>
+              </div>
+            )
+          })
+        }
+      </div>
+    )
+  }
+  itemClick(index){
+    // 获取当前的index，并将index传递给currentIndex
+    this.setState({
+      currentIndex:index
+    })
+    // 接收父传递过来的函数
+    const {itemClick} = this.props;
+    itemClick(index)
+  }
+}
+TabControl.prototypes={
+  titles:PropTypes.array.isRequired
+}
