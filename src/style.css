@@ -1,0 +1,17 @@
+.nav-bar{
+  display: flex;
+}
+.nav-item{
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+}
+.nav-left,.nav-right{
+
+  width: 70px;
+  background-color: #baf;
+}
+.nav-center{
+  flex: 1;
+  background-color: #bfa;
+}
