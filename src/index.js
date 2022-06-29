@@ -1,6 +1,7 @@
 import React from "react";
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 
-import App from './App'
-
-ReactDOM.render(<App/>,document.getElementById('root'))
+// import App from './07_setState的使用/01_为什么使用setState'
+import App from './07_setState的使用/02_setState是异步更新'
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App/>);
