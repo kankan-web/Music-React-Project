@@ -1,12 +1,8 @@
 import React,{PureComponent} from 'react'
 import { connect } from 'react-redux'
-import { addAction,fetchHomeMultidataAction,getHomeMultidataAction,incAction } from '../store/actionCreators'
+import { addAction,incAction } from '../store/counter/actionCreators'
 
 class Home extends PureComponent{
-  componentDidMount(){
-   this.props.getHomeMultidata()
-  }
-
    render(){
     return (
       <div>
@@ -21,8 +17,6 @@ class Home extends PureComponent{
 const mapStateToProps = state =>{
   return {
     counter:state.counterInfo.counter,
-    banners:state.homeInfo.banners,
-    recommends:state.pageInfo.recommends
   }
 }
 const mapDispachToProp = dispatch=>{
@@ -32,10 +26,7 @@ const mapDispachToProp = dispatch=>{
     },
     addNumber:function(num){
       dispatch(addAction(num))
-    },
-   getHomeMultidata(){
-    dispatch(fetchHomeMultidataAction)
-   }
+    }
   }
 }
 

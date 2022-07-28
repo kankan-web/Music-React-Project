@@ -1,7 +1,9 @@
 import axios from 'axios'
 import {takeEvery,put,all,takeLatest} from 'redux-saga/effects'
-import { changeBannersAction, changeRecommendAction } from './actionCreators';
-import { ADD_NUMBER, FETCH_HOME_MULTIDATA } from './constants';
+import { changeBannersAction, changeRecommendAction } from './home/actionCreators';
+import { FETCH_HOME_MULTIDATA } from './home/constants';
+// import {ADD_NUMBER} from './counter/constants'
+
 function* fetchHomeMultidata(action){
   const res = yield axios.get('http://123.207.32.32:8000/home/multidata');
   const banners = res.data.data.banner.list;
@@ -20,7 +22,7 @@ function* mySaga(){
   // takeEvery：每一个都会被执行
   yield all([
     takeLatest(FETCH_HOME_MULTIDATA,fetchHomeMultidata),
-    takeLatest(ADD_NUMBER,fetchHomeMultidata)
+    // takeLatest(ADD_NUMBER,fetchHomeMultidata)
   ])
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Home from './pages/home3-react-redux-connect'
+import Home from './pages/home6'
 import Page from './pages/page3'
 export default class App extends Component {
   render() {
