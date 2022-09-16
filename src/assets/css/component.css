@@ -1,0 +1,13 @@
+.flex {
+  display: flex;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.clear::after{
+  content: ' ';
+  display: block;
+  clear: both;
+}
