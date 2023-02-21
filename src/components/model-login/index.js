@@ -52,15 +52,14 @@ export default memo(function ModalLogin() {
       url: `/login/qr/key?timerstamp=${Date.now()}`,
     })
     const key = res.data.unikey
-    console.log('key',key)
     const res2 = await axios({
       url: `/login/qr/create?key=${key}&qrimg=true&timerstamp=${Date.now()}`,
     })
     document.querySelector('#qrImg').src = res2.data.qrimg
-  
+    let timeSum = 0;
     timer = setInterval(async () => {
+      timeSum +=1;
       const statusRes = await checkStatus(key)
-      console.log('statusRws',statusRes)
       if (statusRes.code === 800) {
         alert('二维码已过期,请重新获取')
         clearInterval(timer)
@@ -74,6 +73,9 @@ export default memo(function ModalLogin() {
         const data = await getLoginStatus(statusRes.cookie)
         dispatch(changeUserProfile(data))
         localStorage.setItem('cookie', statusRes.cookie)
+      }
+      if(timeSum===50){//循环50次后停止
+        clearInterval(timer)
       }
     }, 3000)
   }

@@ -133,6 +133,7 @@ export default memo(function MYAppPlayerBar(props) {
     }
     dispatch(changeSequenceAction(currentSequence))
   }
+  
   //设置音乐播放,上一首，下一首
   const changeMusic = (tag)=>{
     dispatch(changeCurrentSong(tag))

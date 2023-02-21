@@ -32,7 +32,7 @@ instance.interceptors.response.use(res => {
         console.log("未授权访问");
         break;
       default:
-        console.log("其他错误信息");
+        console.log("其他错误信息",err);
     }
   }
   return err;
